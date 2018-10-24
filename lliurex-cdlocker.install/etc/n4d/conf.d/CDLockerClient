@@ -1,0 +1,9 @@
+[SETUP]
+type=python
+path=CDLockerClient.py
+class=CDLockerClient
+[METHODS]
+enable=adm,admins,admin,teachers
+disable=adm,admins,admin,teachers
+getState=anonymous
+do_action=adm,admins,admin,teachers
