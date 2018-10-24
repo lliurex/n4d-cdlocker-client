@@ -2,14 +2,12 @@ Source: n4d-cdlocker-client
 Section: utils
 Priority: optional
 Maintainer: Hector Garcia Huerta <hectorgh@gmail.com>
-Build-Depends: debhelper (>=9)
-Standards-Version: 3.9.7
+Build-Depends: debhelper (>=10)
+Standards-Version: 4.1.2
 Homepage: http://lliurex.net
 
 Package: n4d-cdlocker-client
 Architecture: all
-Breaks: lliurex-cdlocker (<< 0.2)
-Conflicts: lliurex-cdlocker (<< 0.2)
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: CD Locker client n4d plugin
  Locks client drive CD tray 
