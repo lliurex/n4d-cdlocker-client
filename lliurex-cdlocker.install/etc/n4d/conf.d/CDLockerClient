@@ -1,9 +1,0 @@
-[SETUP]
-type=python
-path=CDLockerClient.py
-class=CDLockerClient
-[METHODS]
-enable=sudo,admins,admin,teachers
-disable=sudo,admins,admin,teachers
-getState=anonymous
-do_action=sudo,admins,admin,teachers

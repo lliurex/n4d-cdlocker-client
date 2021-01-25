@@ -1,14 +1,17 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import re
 from shutil import copy2
 import os
 import threading
 import subprocess
+import n4d.server.core as n4dcore
+import n4d.responses
 
 class CDLockerClient:
 	
 	def __init__(self):
 		
+		self.core=n4dcore.Core.get_core()
 		self.etc_udev_file="/etc/udev/rules.d/60-cdrom_id.rules"
 		self.udev_file="/lib/udev/rules.d/60-cdrom_id.rules"
 		
@@ -27,14 +30,16 @@ class CDLockerClient:
 	def _startup(self):
 		
 		try:
-			
+			'''
 			if objects.has_key("VariablesManager"):
 				objects["VariablesManager"].register_trigger("CDLOCKER","CDLockerClient",self.lock_trigger)
+			'''
+			self.core.register_variable_trigger("CDLOCKER","CDLockerClient",self.lock_trigger)
 			self.get_value()
 			self.lock_trigger()
 			
 		except Exception as e:
-			print str(e)
+			print(str(e))
 			
 	#def _startup
 	
@@ -45,7 +50,8 @@ class CDLockerClient:
 		tries=10
 		for x in range(0,tries):
 		
-			self.var=objects["VariablesManager"].get_variable("CDLOCKER")
+			#Old n4d:self.var=objects["VariablesManager"].get_variable("CDLOCKER")
+			self.var=self.core.get_variable("CDLOCKER")["return"]
 			if self.var != None:
 				self.lock_trigger(self.var)
 				break
@@ -118,9 +124,13 @@ class CDLockerClient:
 			self.refresh_udev()
 			os.system("eject -i on /dev/sr0 1>/dev/null")
 			os.system("chmod 0700 /usr/bin/eject")
-			return True
+			#Old n4d: return True
+			return responses.build_successful_call_response(True)
+
 		else:
-			return False
+			#Old n4d: return False
+			return responses.build_successful_call_response(False)
+			
 		
 	#def lock
 
@@ -134,7 +144,9 @@ class CDLockerClient:
 		os.system("eject -i off /dev/sr0 1>/dev/null")
 		os.system("chmod 0755 /usr/bin/eject")
 
-		return True
+		#Old n4d: return True
+		return responses.build_successful_call_response(False)
+
 
 	#def unlock
 
