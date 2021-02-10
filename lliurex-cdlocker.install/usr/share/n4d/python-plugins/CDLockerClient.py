@@ -51,7 +51,7 @@ class CDLockerClient:
 		for x in range(0,tries):
 		
 			#Old n4d:self.var=objects["VariablesManager"].get_variable("CDLOCKER")
-			self.var=self.core.get_variable("CDLOCKER")["return"]
+			self.var=self.core.get_variable("CDLOCKER").get('return',None)
 			if self.var != None:
 				self.lock_trigger(self.var)
 				break
