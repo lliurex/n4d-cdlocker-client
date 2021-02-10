@@ -1,3 +1,9 @@
+n4d-cdlocker-client (0.2.15) focal; urgency=medium
+
+  * Initial release for focal
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 10 Feb 2021 13:16:26 +0100
+
 n4d-cdlocker-client (0.1.15) bionic; urgency=medium
 
   * Adding sudo group
