@@ -1,3 +1,9 @@
+n4d-cdlocker-client (0.2.17) focal; urgency=medium
+
+  * Fixed response in n4d plugin
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 31 Mar 2021 10:55:13 +0200
+
 n4d-cdlocker-client (0.2.16) focal; urgency=medium
 
   * Fixed postinst
