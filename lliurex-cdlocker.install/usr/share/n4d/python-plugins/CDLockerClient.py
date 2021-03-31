@@ -125,11 +125,11 @@ class CDLockerClient:
 			os.system("eject -i on /dev/sr0 1>/dev/null")
 			os.system("chmod 0700 /usr/bin/eject")
 			#Old n4d: return True
-			return responses.build_successful_call_response(True)
+			return n4d.responses.build_successful_call_response(True)
 
 		else:
 			#Old n4d: return False
-			return responses.build_successful_call_response(False)
+			return n4d.responses.build_successful_call_response(False)
 			
 		
 	#def lock
@@ -145,7 +145,7 @@ class CDLockerClient:
 		os.system("chmod 0755 /usr/bin/eject")
 
 		#Old n4d: return True
-		return responses.build_successful_call_response(False)
+		return n4d.responses.build_successful_call_response(False)
 
 
 	#def unlock
